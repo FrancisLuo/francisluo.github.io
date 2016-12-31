@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        notes-week03｜JunLuo&#39;s blog
+        notes-week04｜JunLuo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://francisluo.github.io/2016/12/19/notes-week03/">
+    <link rel="canonical" href="https://francisluo.github.io/2016/12/27/notes-week04/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -128,14 +128,14 @@
 
 
 <img class="wechat-title-img"
-     src="nullhttp://p1.bpimg.com/567571/62c3691332a04bb2.jpg">
+     src="http://i1.piimg.com/567571/69ec1e3a33b14043.jpg">
 
 
 <style>
 
     /**/
     header.intro-header {
-        background-image: url('http://p1.bpimg.com/567571/62c3691332a04bb2.jpg')
+        background-image: url('http://i1.piimg.com/567571/69ec1e3a33b14043.jpg')
     }
 
     /**/
@@ -148,12 +148,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>notes-week03</h1>
+                    <h1>notes-week04</h1>
                     
                     <span class="meta">
                          作者 Jun Luo
                         <span>
-                          日期 2016-12-19
+                          日期 2016-12-27
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -168,7 +168,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            notes-week03
+            notes-week04
         </span>
     </div>
 </header>
@@ -179,27 +179,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h2 id="本周总结"><a href="#本周总结" class="headerlink" title="本周总结"></a>本周总结</h2><p>Stanford的ML课程学习到了week03后期，已经基本掌握了理解深度学习所需要的基本概念和方法，下周会进入深度学习这个机器学习一个分支</p>
-<ul>
-<li>week03的主要内容是Classification里的<a href="https://www.coursera.org/learn/machine-learning/supplement/AqSH6/hypothesis-representation" target="_blank" rel="external">Logistic Function</a>，意义在于对于可能性进行预估，而不是确切的结果。例如预测肿瘤为良性或者恶性的可能性</li>
-<li>最开始对于其中的cost function（评估generalization error）理解出现了偏差，我以为所有的误差都是用最小二乘法进行计算的，这里总结一下我的新理解：机器学习算法的目的就是为了找出一堆的参数让预测函数的输出可以尽可能的和训练数据输出的结果相匹配，这个里面也涉及到了很多数学以及统计学的技巧，如何设计一个很好地评估generalization error的cost function让其可以利用算法自动得到全局最小值就是关键，这里的自动我认为就是机器学习算法和传统算法也就是week02里面提到的这个<a href="https://www.coursera.org/learn/machine-learning/supplement/bjjZW/normal-equation" target="_blank" rel="external">normal equation</a>的根本差别，避免了使用传统数学带来的人为计算的复杂性。</li>
-</ul>
-<p>完成了week02的MATLAB实验：利用Gradient Descent方法基于多多元变量进行线性回归预测，并且翻译了Python代码，利用NumPy与matplotlib这两个Python库。</p>
-<p>进一步熟悉了Python中的各种数据结构，以及NumPy库中的用于矩阵运算的类，掌握了利用Matplotlib进行简单的绘图操作，用于数据可视化</p>
-<h2 id="NumPy的使用简单总结（仅仅涉及到本次实验）"><a href="#NumPy的使用简单总结（仅仅涉及到本次实验）" class="headerlink" title="NumPy的使用简单总结（仅仅涉及到本次实验）"></a>NumPy的使用简单总结（仅仅涉及到本次实验）</h2><p>NumPy中最基础的矩阵运算的变量为ndarray，利用numpy.array()进行创建，NumPy中index是从0开始而不是从1开始，很容易和MATLAB搞混,对于下图第二条代码需要注意，本来这个数据只有3列，但是这里需要注意<strong>用2:3为了让其产生的还是2D的ndarray</strong>，否则会出现矩阵相乘结果很奇怪的错误（以下用np代指numpy）<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">data = np.loadtxt(<span class="string">'ex1data2.txt'</span>) <span class="comment">#这里是将我的traning set加载到变量,txt中为分隔为空格，47*3的矩阵</span></div><div class="line">X = np.array(data[:, <span class="number">0</span>:<span class="number">2</span>])<span class="comment">#这里的data已经为一个ndarray实例，这就是取其中的第一二列的方法</span></div><div class="line">y = np.array(data[:, <span class="number">2</span>:<span class="number">3</span>])<span class="comment">#如何取行呢，估计已经可以猜到了</span></div></pre></td></tr></table></figure></p>
-<p>下面代码为矩阵拼接，为了让方便计算，会加上全一向量，对于numpy.hstack()—h指horizontal，stack是堆叠，就很好理解了，还有相应的numpy.vstack()—vertical stack.<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">intercept = np.ones([m, <span class="number">1</span>])<span class="comment"># 这里的基本使用和MATLAB一致，创建m*1的全1矩阵</span></div><div class="line">X_norm = np.hstack((intercept, X_norm))<span class="comment">#矩阵拼接，</span></div></pre></td></tr></table></figure></p>
-<p>下面是用于数据标准化的代码，利用ndarray自带的mean方法和std方法<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">x_norm = np.array(feature_data)<span class="comment">#feature data就是我的训练集中的X的数据</span></div><div class="line">mu = np.array(x_norm.mean(axis=<span class="number">0</span>))<span class="comment">#求均值方法，和MATLAB相似，需要用axis=来指定对于行求还是对于列求，生成1*N矩阵还是N*1矩阵</span></div><div class="line">sigma = np.array(x_norm.std(axis=<span class="number">0</span>))<span class="comment">#求方差方法</span></div></pre></td></tr></table></figure></p>
-<p>用于矩阵计算的方法,theta为我所需要求的参数，利用np.dot(tuple)可以求矩阵乘积，或者直接ndarray.dot(ndarray)，ndarray.T求矩阵的transpose，或者ndarray.transpose(),np.linalg.inv()求逆矩阵<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">theta = np.dot(np.linalg.inv(x.T.dot(x)), x.T).dot(y)<span class="comment">#这里就是为了求这个上文所述的normal equation的方式</span></div></pre></td></tr></table></figure></p>
-<h2 id="Matplotlib的简单使用（和MATLAB极其相似）"><a href="#Matplotlib的简单使用（和MATLAB极其相似）" class="headerlink" title="Matplotlib的简单使用（和MATLAB极其相似）"></a>Matplotlib的简单使用（和MATLAB极其相似）</h2><p>这里仅仅涉及到很简单的绘图操作，更加复杂的方法会在以后的博客中更新，有MATLAB经验之后看完下面的绘图代码就知道如何绘图了，下图是对cost function的结果进行绘图，用来直观的展示<a href="https://www.coursera.org/learn/machine-learning/supplement/TnHvV/gradient-descent-in-practice-ii-learning-rate" target="_blank" rel="external">learning rate—alpha</a>对于cost function的影响<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">iteration = list(range(<span class="number">1</span>, num_iters+<span class="number">1</span>))</div><div class="line">plt.plot(iteration, J_history, linewidth=<span class="number">5</span>)</div><div class="line">plt.title(<span class="string">"relationship between cost function J and iteration"</span>)<span class="comment">#figure的title</span></div><div class="line">plt.xlabel(<span class="string">"iters"</span>)<span class="comment">#横坐标标记</span></div><div class="line">plt.ylabel(<span class="string">"cost"</span>)</div><div class="line">plt.show()<span class="comment">#展示绘图结果</span></div></pre></td></tr></table></figure></p>
-<h2 id="Python库相关"><a href="#Python库相关" class="headerlink" title="Python库相关"></a>Python库相关</h2><ul>
-<li><a href="https://www.continuum.io/downloads" target="_blank" rel="external">anaconda</a>(Python的集成开发环境集成143个常用Python库)避免的安装麻烦，而且可以shell命令一键升级</li>
-<li><a href="https://docs.scipy.org/doc/" target="_blank" rel="external">NumPy documentation</a>可以根据其中的Guide进行简单地学习就可以掌握基础的操作，熟悉MATLAB的话可以借助MATLAB命令进行对比</li>
-<li><a href="https://docs.scipy.org/doc/" target="_blank" rel="external">SciPy documentation</a></li>
-<li><a href="http://matplotlib.org/1.5.3/contents.html" target="_blank" rel="external">Matplotlib documentation</a></li>
-</ul>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><ul>
-<li><a href="https://github.com/FrancisLuo/python_work/tree/master/ML_ex1" target="_blank" rel="external">Click here</a></li>
-</ul>
+                <p>#Neural networks</p>
 
                 <hr>
                 
@@ -207,14 +187,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2016/12/27/notes-week04/" data-toggle="tooltip" data-placement="top"
-                           title="notes-week04">&larr; Previous Post</a>
+                        <a href="/2017/01/01/2017/" data-toggle="tooltip" data-placement="top"
+                           title="2017">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2016/12/13/写在博客创建前/" data-toggle="tooltip" data-placement="top"
-                           title="写在博客创建前">Next Post &rarr;</a>
+                        <a href="/2016/12/19/notes-week03/" data-toggle="tooltip" data-placement="top"
+                           title="notes-week03">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -223,9 +203,9 @@
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                         data-thread-key="2016/12/19/notes-week03/"
-                         data-title="notes-week03"
-                         data-url="https://francisluo.github.io/2016/12/19/notes-week03/">
+                         data-thread-key="2016/12/27/notes-week04/"
+                         data-title="notes-week04"
+                         data-url="https://francisluo.github.io/2016/12/27/notes-week04/">
                     </div>
                 </div>
                 <!-- 多说评论框 end -->
@@ -237,7 +217,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本周总结"><span class="toc-text">本周总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NumPy的使用简单总结（仅仅涉及到本次实验）"><span class="toc-text">NumPy的使用简单总结（仅仅涉及到本次实验）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matplotlib的简单使用（和MATLAB极其相似）"><span class="toc-text">Matplotlib的简单使用（和MATLAB极其相似）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python库相关"><span class="toc-text">Python库相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li></ol>
+                    
                 </div>
             </div>
         </div>
